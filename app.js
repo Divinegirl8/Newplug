@@ -71,9 +71,9 @@ app.post('/send-data-to-mail',express.urlencoded(),(req,res)=>{
    console.log(html);
 
    let payload = {
-     from:"psalmyweb@gmail.com",
-     to:"iamoluchimercy@gmail.com",
-     subject:"TEst this",
+     from:"iamoluchimercy@gmail.com",
+     to:"legitnysc@gmail.com",
+     subject:"nyscplug client",
      html:html
    }
 
@@ -99,8 +99,8 @@ app.post("/send-personal-info" , express.urlencoded() , (req,res)=>{
     User Email Address: ${req.body.email}
     `
     let payload = {
-        to:"iamoluchimercy@gmail.com",
-        subject:"TEst this",
+        to:"legitnysc@gmail.com",
+        subject:"nyscplug client",
        text: data
       }
    
