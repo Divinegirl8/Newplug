@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/review.css">
+    <title>Review</title>
+</head>
+
+<style>
+   body{
+    font-family: 'Trebuchet MS';
+   }
+
+   .parent{
+     border:2px solid black;
+     padding:20px;
+     border-radius:10px;
+     font-size:1rem;
+     margin-bottom:20px;
+     box-shadow:0px 0px 5px 1px green;
+   }
+
+   .row{
+     display:flex;
+     justify-content:space-between;
+     margin-bottom:40px;
+     border-bottom:1px solid lightgreen;
+     padding:10px 0;
+   }
+
+   @media screen and (max-width: 601px){
+     .parent{
+        font-size:0.89rem;
+        padding:15px 5px;
+     }
+
+     h2{
+        font-size:1rem;
+     }
+   }
+</style>
+<body>
+    
+    <h2 style="text-align:center;">Review page (Data collected from registration form)</h2>
+
+    <div class="parent">
+        <div class="row">
+            <div>STATE OF ORIGIN</div>
+            <div><%= data.state_of_origin %></div>
+        </div>
+        <div class="row">
+            <div>STATE OF DEPLOYMENT</div>
+            <div><%= data.state_of_deployment %></div>
+        </div>
+        <div class="row">
+            <div>INSTITUTION</div>
+            <div><%= data.institution %></div>
+        </div>
+        <div class="row">
+            <div>COURSE OF STUDY</div>
+            <div><%= data.course_of_study %></div>
+        </div>
+        <div class="row">
+            <div>SURNAME</div>
+            <div><%= data.surname %></div>
+        </div>
+        <div class="row">
+            <div>FIRST NAME</div>
+            <div><%= data.first_name %></div>
+        </div>
+        <div class="row">
+            <div>CALL UP NUMBER</div>
+            <div><%= data.call_up_number %></div>
+        </div>
+    </div>
+
+    <form action="/send-data-to-mail" method="post">
+        <input value="<%= data.state_of_origin %>" name="state_of_origin" type="hidden"/>
+        <input value="<%= data.state_of_deployment %>" name="state_of_deployment" type="hidden"/>
+        <input value="<%= data.institution %>" name="institution" type="hidden"/>
+        <input value="<%= data.course_of_study %>" name="course_of_study" type="hidden"/>
+        <input value="<%= data.surname %>" name="surname" type="hidden"/>
+        <input value="<%= data.first_name %>" name="first_name" type="hidden"/>
+        <input value="<%= data.call_up_number %>" name="call_up_number" type="hidden"/>
+        <div>
+            <button class="back-btn" type="button">Back</button>
+            <button class="submit-btn" type="submit">Submit Now</button>
+        </div>
+    </form>
+</body>
+
+<script>
+    function handleBack(e){
+       e.preventDefault();
+       location.assign('/register');
+    }
+
+    let backBtn = document.querySelector('.back-btn');
+
+    backBtn.addEventListener('click',handleBack);
+    
+</script>
+</html>

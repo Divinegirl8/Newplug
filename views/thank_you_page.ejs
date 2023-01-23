@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/info.css">
+    <title>Document</title>
+</head>
+<body>
+
+ <!-- MAIN WRAPPER -->
+ <div class="wrapper">
+    <!-- MAIN FORM BOX -->
+    <form action="/send-personal-info" method="post">
+        <label for="">
+            HOW DO YOU WANT TO BE CONTACTED?
+        </label>
+
+        <br>
+        <br>
+    <select name="" id="">
+    <option value="">Phone Number or Email Address</option>
+    <option value="Phone Number">Phone Number</option>
+    <option value="Email Address">Email Address</option>
+    
+    </select>
+    
+    <br>
+    <br>
+    <input type="number" name="phone_number" id="" placeholder="Enter your phone number here " style="display: none;" required>
+    <input type="email" name="email" id="" placeholder="Enter your email address here " style="display: none;" required>
+    
+    <button onclick="handleSubmit()" type="submit" style="display: none;"> 
+        Submit
+    </button>
+    
+        </form>
+      </div>
+   
+</body>
+<script>
+
+let select = document.querySelector("select");
+let phoneinput = document.querySelector("input[type=number]");
+let emailinput = document.querySelector("input[type=email]");
+let submit_button = document.querySelector('button');
+let form = document.querySelector("form");
+
+select.addEventListener('change', function(){
+
+    if (select.value == 'Phone Number') {
+        phoneinput.style.display = 'block'
+        emailinput.style.display = 'none'
+        console.log('message')
+    }
+
+    if (select.value == 'Email Address') {
+        phoneinput.style.display = 'none'
+        emailinput.style.display = 'block'
+    }
+
+    if (select.value) {
+        submit_button.style.display = "block"
+    }else{
+        submit_button.style.display = "none"
+    }
+
+} )
+
+submit_button.addEventListener("click" , function(e){
+    e.preventDefault()
+    form.submit()
+})
+
+
+</script>
+
+</html>

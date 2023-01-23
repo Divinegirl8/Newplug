@@ -1,0 +1,22 @@
+
+
+div .back-btn{
+  border:none;
+  color:white;
+  font-weight:bold;
+  background-color:black;
+  border-radius:5px;
+  padding:10px 20px;
+  cursor: pointer;
+}
+
+div .submit-btn{
+  border:none;
+  color:white;
+  font-weight:bold;
+  background-color:green;
+  border-radius:5px;
+  padding:10px 20px;
+  cursor: pointer;
+}
+
